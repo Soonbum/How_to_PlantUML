@@ -154,7 +154,64 @@ stop
 
 ### Parallel
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/bdb4693a-ec5a-488f-9a1e-931f5fad00bc)
+
+```
+@startuml
+
+title Parallel - Activity Diagram 
+
+start
+
+:핫윙을 먹는다;
+
+:홈브루를 마신다;
+
+if (게임을 켤까?) then (응)
+  fork
+    :__재밌다__!!!;
+  fork again
+    :TV를 보면서 소리를 지른다!!;
+  end fork
+else (no)
+  :재미없다;
+  :팝 타르트를 먹는다;
+endif
+
+:잠자러 간다;
+
+stop
+
+@enduml
+```
+
 ### Color
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/3c5bc766-4755-4a52-aa7c-455ff076f4b8)
+
+```
+@startuml
+
+title Color - Activity Diagram 
+
+skinparam backgroundColor #AAAAAA
+skinparam activity {
+  StartColor Red
+  EndColor Blue
+  BackgroundColor Green
+  BorderColor Yellow
+}
+
+start
+
+:핫윙을 먹는다;
+
+:홈브루를 마신다;
+
+stop
+
+@enduml
+```
 
 ## Class
 
