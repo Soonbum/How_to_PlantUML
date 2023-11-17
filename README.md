@@ -715,7 +715,274 @@ queue Queue
 
 ## Design Patterns
 
+### Abstract Factory
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/4dfdba97-ee1e-4ee3-b9c3-ff0afff3f2d7)
+
+```
+@startuml
+
+interface AbstractFactory {
+    +createProductA(): AbstractProductA
+    +createProductB(): AbstractProductB
+}
+
+class ConcreteFactory1 {
+    +createProductA(): AbstractProductA
+    +createProductB(): AbstractProductB
+}
+
+class ConcreteFactory2 {
+    +createProductA(): AbstractProductA
+    +createProductB(): AbstractProductB
+}
+
+interface AbstractProductA {
+    +operation(): void
+}
+
+interface AbstractProductB {
+    +operation(): void
+}
+
+
+
+class ConcreteProductA1 {
+    +operation(): void
+}
+
+class ConcreteProductB1 {
+    +operation(): void
+}
+
+class ConcreteProductA2 {
+    +operation(): void
+}
+
+class ConcreteProductB2 {
+    +operation(): void
+}
+
+AbstractFactory <|.. ConcreteFactory1
+AbstractFactory <|.. ConcreteFactory2
+AbstractProductA <|..up- ConcreteProductA1
+AbstractProductB <|..up- ConcreteProductB1
+AbstractProductA <|..up- ConcreteProductA2
+AbstractProductB <|..up- ConcreteProductB2
+ConcreteFactory1 ..> ConcreteProductA1
+ConcreteFactory1 ..> ConcreteProductB1
+ConcreteFactory2 ..> ConcreteProductA2
+ConcreteFactory2 ..> ConcreteProductB2
+
+AbstractFactory <-up- "Client" : operation()
+AbstractProductA <-up- "Client" : operation()
+AbstractProductB <-up- "Client" : operation()
+
+@enduml
+```
+
+### Singleton
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/0b63d77f-08c7-41b3-9f0a-6f145210ef5b)
+
+```
+@startuml
+
+class Singleton {
+    -{static} instance: Singleton
+    +{static} getInstance(): Singleton
+    +operation(): void
+}
+
+Singleton -> Singleton : getInstance()
+Singleton -up-> "Client" : operation()
+note left of Singleton::instance
+    private static Singleton instance;
+end note
+
+@enduml
+```
+
+### Observer
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/80ee777b-0179-468e-8562-2903bd358d3c)
+
+```
+@startuml
+
+title Observer
+
+interface Subject <<interface>> {
+    + registerObserver(observer: Observer)
+    + removeObserver(observer: Observer)
+    + notifyObservers()
+}
+
+interface Observer <<interface>> {
+    + update()
+}
+
+class MyTopic implements Subject {
+    - observers: Observer[]
+    + registerObserver(observer: Observer)
+    + removeObserver(observer: Observer)
+    + notifyObservers()
+}
+
+class User implements Observer {
+    - username: string
+    + update()
+}
+
+MyTopic --> "Observers 1..*" Observer
+User ..> Subject : "Topic 0..1"
+
+@enduml
+```
+
 ## Gantt
+
+### Lasts
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/d6db899b-5d34-4192-afba-117b22cb8772)
+
+```
+@startgantt
+
+Project starts 2020-02-01
+
+-- Team 1 --
+[T1 - Requirements] lasts 6 days
+[T1 - Design] lasts 7 days
+[T1 - Implementation] lasts 13 days
+
+-- Team 2 --
+[T2 - Requirements] lasts 1 week and 4 days
+[T2 - Implementation] lasts 2 weeks
+
+@endgantt
+```
+
+### Starts
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/73ea4237-7a52-44ec-b492-98c556fa270e)
+
+```
+@startgantt
+
+Project starts 2020-02-01
+
+-- Team 1 --
+[T1 - Requirements] lasts 6 days
+[T1 - Design] lasts 7 days
+[T1 - Implementation] lasts 13 days
+
+[T1 - Requirements] starts 2020-02-02
+[T1 - Design] starts 2020-02-06
+[T1 - Implementation] starts 2020-02-08
+
+
+-- Team 2 --
+[T2 - Requirements] lasts 1 week and 4 days
+[T2 - Implementation] lasts 2 weeks
+
+[T2 - Requirements] starts 2020-02-02
+[T2 - Implementation] starts 2020-02-07
+
+@endgantt
+```
+
+### Starts & Ends
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/b0bc8d13-fe14-4531-9d96-59f549aabbd2)
+
+```
+@startgantt
+
+Project starts 2020-02-01
+
+-- Team 1 --
+[T1 - Requirements] lasts 6 days
+[T1 - Design] lasts 7 days
+[T1 - Implementation] lasts 13 days
+
+[T1 - Requirements] ends 2020-02-07
+[T1 - Design] ends 2020-02-12
+[T1 - Implementation] ends 2020-02-20
+
+-- Team 2 --
+[T2 - Requirements] starts 2020-02-02
+[T2 - Requirements] ends 2020-02-13
+[T2 - Implementation] starts 2020-02-07
+[T2 - Implementation] ends 2020-02-20
+
+-- Team 3 --
+[T3 - Requirements] starts 2020-02-02 and ends 2020-02-13
+[T3 - Implementation] starts 2020-02-07 and ends 2020-02-20
+
+@endgantt
+```
+
+### Constraints and Short Names
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/07b67053-ff34-4997-badd-b7069fa9ecfe)
+
+```
+@startgantt
+
+Project starts 2020-02-01
+
+-- Team 1 --
+[T1 - Requirements] lasts 6 days
+[T1 - Design] lasts 7 days
+
+[T1 - Requirements] ends 2020-02-07
+
+'Adding constraint
+[T1 - Design] starts at [T1 - Requirements]'s end
+
+'Short Name
+[T1 - Implementation] as [I] lasts 13 days
+[I] starts at [T1 - Design]'s end
+
+@endgantt
+```
+
+### Colors and Completed
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/29c94f39-7b43-4572-8908-fc42a23a0dd8)
+
+```
+@startgantt
+
+Project starts 2020-02-01
+
+-- Team 1 --
+[T1 - Requirements] as [T1R] lasts 1 week and 4 days and is 22% complete
+[T1 - Implementation] as [T1I] starts 2020-02-10 and ends 2020-02-22
+
+[T1R] is colored in pink
+[T1I] is colored in lightblue
+[T1I] is 90% completed
+
+-- Days Off --
+[Holidays] starts 2020-02-12 and ends 2020-02-14
+[Holidays] is colored in GreenYellow
+
+@endgantt
+```
+
+### Then, Milestones, and Hyperlinks
+
+### Daily & Closed Days
+
+### Weekly
+
+### Resource Usages
+
+### Notes
+
+### Links & Colors
 
 ## GraphViz
 
