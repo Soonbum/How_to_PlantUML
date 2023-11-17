@@ -215,7 +215,289 @@ stop
 
 ## Class
 
+### Classes
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/3f3a5462-0d15-409e-8147-f59587570874)
+
+```
+@startuml
+
+title Classes - Class Diagram
+
+class 주거지 {
+  +Int 창문들
+  +void 잠금()
+}
+
+class 아파트
+class 하우스
+class 기숙사
+
+@enduml
+```
+
+### Relationships
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/67c74997-65f6-482b-a5a8-47dfb751fb19)
+
+```
+@startuml
+
+title Relationships - Class Diagram
+
+class 주거지 {
+  +Int 창문들
+  +void 문잠금()
+}
+
+class 아파트
+class 하우스
+class 기숙사
+class 창문
+class 문
+
+Dwelling <|-down- 아파트: Inheritance
+Dwelling <|-down- 기숙사: Inheritance
+Dwelling <|-down- 하우스: Inheritance
+Dwelling "1" *-up- "many" 창문: Composition
+Dwelling "1" *-up- "many" 문: Composition
+
+@enduml
+```
+
+### Types
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/7a21fba1-8866-4152-826f-4f68fe21d58c)
+
+```
+@startuml
+
+title Types - Class Diagram
+
+skinparam componentStyle uml2
+
+abstract class AbstractList {
+
+}
+
+class Test << general >> {
+}
+
+class System << (S,#FF7700) Singleton >>
+class Date << (D,orchid) >>
+
+class Foo1<Generics tag> {
+  You can use
+  several lines
+  ..
+  as you want
+  and group
+  ==
+  things together.
+  __
+  You can have as many groups
+  as you want
+  --
+  End of class
+}
+
+class User {
+  .. Simple Getter ..
+  + getName() : String
+  + getAddress() : Address
+  .. Some setter ..
+  + setName() : String
+  __ private data __
+  -int age
+  -- crypted --
+  -String password
+}
+
+enum TimeUnit {
+  DAYS
+  HOURS
+  MINUTES
+}
+
+interface List {
+
+}
+
+annotation SuppressWarnings
+
+class Object << general >>
+Object <|--- ArrayList
+
+@enduml
+```
+
+### Properties / Methods
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/b95de903-38ba-41c1-9d44-124d99e98572)
+
+```
+@startuml
+
+title Properties / Methods - Class Diagram
+
+skinparam componentStyle uml2
+class Car {
+  .. Field Examples ..
+- Name: Type { arg1, arg2, argn }
++Name: Type { arg1, arg2, argn }
+#Name: Type { arg1, arg2, argn }
+~Name: Type { arg1, arg2, argn }
+
+  .. Method Examples ..
+-Name(): Type { arg1, arg2, argn }
++Name(): Type { arg1, arg2, argn }
+#Name(): Type { arg1, arg2, argn }
+~Name(): Type { arg1, arg2, argn }
+
+  .. Static Example ..
++{static} Name(): Type { arg1, arg2, argn }
+
+  .. Abstract Example ..
++{abstract} Name(): Type { arg1, arg2, argn }
+}
+
+class Car
+ICar ()- Car
+ICar2 ()-- Car
+Car -() ICar3
+
+@enduml
+```
+
+### Interfaces
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/90b2ba27-bae3-46ad-98ea-2e0dcad1e3de)
+
+```
+@startuml
+
+title Interfaces - Class Diagram
+
+class Car
+ICar ()- Car
+ICar2 ()-- Car
+Car -() ICar3
+
+@enduml
+```
+
+### Packages
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/92170236-9fea-46e5-83f9-3701f633196a)
+
+```
+@startuml
+
+title Packages - Class Diagram
+
+package Node <<Node>> {
+  class Worker1
+}
+
+package Rectangle <<Rect>> {
+  class Worker2
+}
+
+package Folder <<Folder>> {
+  class Worker3
+}
+
+package Frame <<Frame>> {
+  class Worker4
+}
+
+package Internet <<Cloud>> {
+  class Worker5
+}
+
+package Database <<Database>> {
+  class Worker6
+}
+
+@enduml
+```
+
 ## Component
+
+### Components
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/f56800a5-43e2-43c7-aa41-5eeffe320af3)
+
+```
+@startuml
+
+title Components - Component Diagram
+
+[Business Logic]
+[Data Access] as DA  
+component [Graphic User\nInterface] as GUI
+
+@enduml
+```
+
+### Interfaces
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/0cac1ea7-35d7-4236-b2d2-cb155c01cfd3)
+
+```
+@startuml
+
+title Interfaces - Component Diagram
+
+[Business Logic]
+[Data Access] as DA  
+component [Graphic User\nInterface] as GUI
+
+interface IMath as Math
+interface "IItems" as Items
+
+[Business Logic] -- Math
+DA .. Items
+
+@enduml
+```
+
+### Packages
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/7363a1ff-5903-40a9-9781-6730963bfcb2)
+
+```
+@startuml
+
+title Packages - Component Diagram
+
+package "Front End" {
+    component [Graphic User\nInterface] as GUI
+}
+
+cloud Internet {
+}
+ 
+node "Middle Tier" {
+    [Business Logic]
+    [Data Access] as DA  
+    interface IMath as Math
+    interface "IItems" as Items
+} 
+
+database "PostgreSQL\n" {
+    [Stored Procs]
+}
+
+GUI -down-> Internet
+Internet -down-( Math
+[Business Logic] -up- Math
+DA -- Items
+[Business Logic] --( Items
+DA .. [Stored Procs]
+
+@enduml
+```
 
 ## Deployment
 
