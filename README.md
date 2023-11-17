@@ -974,15 +974,182 @@ Project starts 2020-02-01
 
 ### Then, Milestones, and Hyperlinks
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/09b4d1f7-905f-4cf2-b682-671e3710da6d)
+
+```
+@startgantt
+
+Project starts 2020-02-01
+
+-- Team 1 --
+[T1 - Requirements] as [T1R] lasts 6 days
+then [T1 - Design] as [T1D] lasts 7 days
+
+'Maps work when you use html map link type
+[T1R] links to [[http://www.google.com]]
+[T1D] links to [[http://www.yahoo.com]]
+
+'Milestones
+[Party for Team] as [PFT] happens at [T1 - Design]'s end
+[PFT] is colored in Red
+
+@endgantt
+```
+
 ### Daily & Closed Days
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/39311c26-63a4-4a9b-94e3-c7ff1215e8d3)
+
+```
+@startgantt
+
+'Can be daily, weekly, or monthly
+ganttscale daily
+
+saturdays are closed
+sunday are closed
+
+2020/02/06 is closed
+2020/03/10 to 2020/03/12 is closed
+
+Project starts 2020-02-01
+
+-- Team 1 --
+[Version 1] as [V1] lasts 10 days
+then [Version 2] as [V2] lasts 21 days
+
+@endgantt
+```
 
 ### Weekly
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/da38be89-aee2-4453-9854-bc0f8282b5cb)
+
+```
+@startgantt
+
+'Can be daily, weekly, or monthly
+ganttscale weekly
+
+saturdays are closed
+sunday are closed
+
+2020/02/06 is closed
+2020/03/10 to 2020/03/12 is closed
+
+Project starts 2020-02-01
+
+-- Team 1 --
+[Version 1] as [V1] lasts 14 days
+then [Version 2] as [V2] lasts 45 days
+then [Version 3] as [V3] lasts 50 days
+
+@endgantt
+```
+
 ### Resource Usages
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/c165513f-6910-47bd-b715-95cac582ea30)
+
+```
+@startgantt
+
+'Can be daily, weekly, or monthly
+ganttscale daily
+
+2020/02/06 is closed
+2020/02/10 to 2020/02/12 is closed
+
+Project starts 2020-02-01
+
+-- Team 1 --
+[Support] as [s] on {John:10%} {Marcy:10%} lasts 10 days
+[Version 1] as [V1] on {John:50%} {Marcy:20%} lasts 4 days
+then [Version 2] as [V2] on {John:60%} {Marcy:10%} lasts 14 days
+then [Version 3] as [V3] on {John:10%} {Marcy:20%} lasts 8 days
+
+{John} is off on 2020-02-06
+{Marcy} is off on 2020-02-06
+
+{John} is off on 2020-02-10 to 2020-02-12
+{Marcy} is off on 2020-02-10 to 2020-02-12
+
+@endgantt
+```
 
 ### Notes
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/443b439f-f054-4fdd-addd-3c78705c4a24)
+
+```
+@startgantt
+
+Project starts 2020-02-01
+
+-- Team 1 --
+[T1 - Requirements] as [T1R] lasts 8 days
+note bottom
+1. Chat w/ client
+2. Write doc
+3. Review with team
+end note
+[T1R] ends 2020-02-10
+
+[T1 - Design] lasts 7 days
+note bottom
+1. List test cases
+2. Think about performance
+3. Security
+end note
+
+
+'Adding constraint
+[T1 - Design] starts at [T1 - Requirements]'s end
+
+'Short Name
+[T1 - Implementation] as [I] lasts 13 days
+[I] starts at [T1 - Design]'s end
+note bottom
+Go!!
+end note
+
+@endgantt
+```
+
 ### Links & Colors
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/609e6244-dd49-4d1d-a965-8c83f253b663)
+
+```
+@startgantt
+
+Project starts 2020-02-01
+
+-- Team 1 --
+[T1 - Requirements] as [T1R] lasts 8 days 
+note bottom
+1. Chat w/ client
+2. Write doc
+3. Review with team
+end note
+[T1R] ends 2020-02-10
+
+[T1 - Design] as [T1D] lasts 7 days and starts 3 days after [T1R]'s end with blue dotted link
+note bottom
+1. List test cases
+2. Think about performance
+3. Security
+end note
+
+'Short Name
+[T1 - Implementation] as [I] lasts 9 days and starts 5 days after [T1D]'s end with green dashed link
+
+note bottom
+Go!!
+end note
+
+@endgantt
+```
 
 ## GraphViz
 
