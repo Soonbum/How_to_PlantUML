@@ -21,30 +21,60 @@
 
 ### Activity
 
-```uml
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/39cba7c2-d93e-4b00-b7f6-c90c55fdf8f4)
+
+
+```
 @startuml
 
 title Activity Diagram
 
 start
 
-:활동1;
+:핫윙을 먹는다;
 
 note left
   이것은 노트입니다.
   * start 키워드로 시작해서 stop 키워드로 끝납니다.
-  * 활동(Activity)은 콜론으로 시작해서 세미콜론으로 끝납니다.
+  * Activity는 콜론으로 시작해서 세미콜론으로 끝납니다.
 end note
 
-:활동2;
+:홈브루를 마신다;
 
 stop
 
 @enduml
 ```
 
-![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/2c7abdf8-b2c8-4915-904c-1b71d36e19e4)
+### Conditional
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/096ec47d-5a28-4292-a246-b440dee6b3ea)
+
+```
+@startuml
+
+title Conditional - Activity Diagram 
+
+start
+
+:핫윙을 먹는다;
+note right: 오른쪽에 노트 붙이기
+
+:홈브루를 마신다;
+note left: 왼쪽에 노트 붙이기
+
+if (게임을 켤까요?) then (yes)
+  :__재밌다__!!!;
+else (no)
+  :재미없다;
+endif
+
+:침대로 간다;
+
+stop
+
+@enduml
+```
 
 ## Class
 
