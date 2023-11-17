@@ -16,3 +16,74 @@
 - <https://www.planttext.com>
 
 # UML 문법
+
+## Activity
+
+### Activity
+
+```uml
+@startuml
+
+title Activity Diagram
+
+start
+
+:활동1;
+
+note left
+  이것은 노트입니다.
+  * start 키워드로 시작해서 stop 키워드로 끝납니다.
+  * 활동(Activity)은 콜론으로 시작해서 세미콜론으로 끝납니다.
+end note
+
+:활동2;
+
+stop
+
+@enduml
+```
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/2c7abdf8-b2c8-4915-904c-1b71d36e19e4)
+
+
+## Class
+
+## Component
+
+## Deployment
+
+## Design Patterns
+
+## Gantt
+
+## GraphViz
+
+## Icons
+
+## JSON
+
+## MindMap
+
+## 기타
+
+## Network
+
+## Object
+
+## Salt GUI
+
+## Sequence
+
+## State
+
+## Themes
+
+## Timing
+
+## Use Case
+
+## Work Breakdown Structure
+
+## XEarth
+
+## YAML
