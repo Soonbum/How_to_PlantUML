@@ -499,7 +499,219 @@ DA .. [Stored Procs]
 @enduml
 ```
 
+### Labels and Notes
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/bd30c93e-92ac-47c8-9452-128ff9a1fb9a)
+
+```
+@startuml
+
+skinparam componentStyle uml2
+
+title Packages - Component Diagram
+
+package "Front End" {
+    component [Graphic User\nInterface] as GUI
+}
+
+cloud Internet {
+}
+ 
+node "Middle Tier" {
+    [Business Logic]
+    [Data Access] as DA  
+    interface IMath as Math
+    note left of Math : 이것은 웹 서비스\nInterface
+    note right of Math : 아래 라벨을\n보십시오
+    interface "IItems" as Items
+    
+    note left of [Business Logic]
+        노트는 이것처럼
+        여러 줄이 될 수
+        있습니다
+    end note
+    
+} 
+
+database "PostgreSQL\n" {
+    [Stored Procs]
+}
+
+GUI -down-> Internet
+Internet -down-( Math
+[Business Logic] -up- Math : Web Services
+DA -up- Items  : .Net
+[Business Logic] --( Items
+DA .. [Stored Procs]
+
+@enduml
+```
+
 ## Deployment
+
+### All the Elements
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/6e8f17f4-31ad-4128-a4a0-afb364e7a6d9)
+
+```
+@startuml
+
+entity entity
+file file
+folder folder
+boundary boundary
+card card
+cloud cloud
+collections collections
+component component
+frame frame
+actor actor
+agent agent
+artifact artifact
+control control
+database database
+rectangle rectangle
+storage storage
+interface interface
+label label
+node node
+package package
+queue queue
+stack stack
+usecase usecase
+
+@enduml
+```
+
+### Line Types
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/681f0566-4c8f-414f-b103-42aeb4ea271d)
+
+```
+@startuml
+
+1 -- 2 : solid
+1 .. 3 : dashed
+1 -[hidden]- 4 : hidden
+1 ~~ 5 : dotted
+1 == 6 : bold
+
+@enduml
+```
+
+### Relationships
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/2d916bf8-b43d-4f94-9ddb-f9d20c600de5)
+
+```
+@startuml
+
+node 1
+
+1 <-up- 2
+1 -up-> 4
+1 <-up-> 3
+
+1 --* 7
+1 --o 8
+1 --+ 9
+1 --# 10
+1 -->> 11
+1 --0 12
+1 --^ 13
+1 --(0 14
+1 -- 15
+
+@enduml
+```
+
+### Interfaces
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/f797938f-f696-4484-bda3-1fac935f1940)
+
+```
+@startuml
+
+storage Thing1
+storage Thing2
+storage Thing3
+storage Thing4
+storage Thing5
+Thing1 -0- Thing2
+Thing1 -0)- Thing3
+Thing1 -(0- Thing4
+Thing1 -(0)- Thing5
+
+@enduml
+```
+
+### Nesting
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/1691f787-0b82-45db-b636-a8df0907eef2)
+
+```
+@startuml
+
+artifact artifact {
+ card card {
+  cloud cloud {
+   component component {
+    database database {
+     file file {
+      folder folder {
+       frame frame {
+        node node {
+         package package {
+          queue queue {
+           stack stack {
+            rectangle rectangle {
+             storage storage {
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}
+
+@endum
+```
+
+### Mixed
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/b8d1fbf1-53a3-4a71-b00e-2e27444cd352)
+
+```
+@startuml
+
+skinparam rectangle {
+    roundCorner<<Concept>> 54
+}
+
+rectangle "Concept Model" <<Concept>> {
+    rectangle "Example 1" <<Concept>> as ex1
+    rectangle "Another rectangle"
+    actor John
+    frame Nested {
+        cloud Web
+        rectangle "Another One"
+    }
+    card Card {
+     package System
+    }
+}
+database Database
+queue Queue
+
+@enduml
+```
 
 ## Design Patterns
 
