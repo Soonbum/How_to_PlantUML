@@ -76,6 +76,86 @@ stop
 @enduml
 ```
 
+### Notes
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/64b13364-1b77-4b12-8dcc-daf1c3b3ac78)
+
+```
+@startuml
+
+title Notes - Activity Diagram 
+
+start
+
+:핫윙을 먹는다;
+
+note right
+  노트를 여러 줄 넣을 수 있습니다.
+  ....
+  //이탤릭체입니다//
+  ----
+  <b>HTML</b> 태그도 넣을 수 있습니다
+  ====
+  * 불렛 기호를 넣을 수 있습니다
+  ____
+  "" 코드 블럭을 넣을 수 있습니다""
+end note
+
+:홈브루를 마신다;
+
+stop
+
+@enduml
+```
+
+### Repeat
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/75da7f53-1c13-4420-913e-f863b3e16e31)
+
+```
+@startuml
+
+title Repeat - Activity Diagram 
+
+start
+
+repeat
+  :핫윙을 먹는다;
+  :홈브루를 마신다;
+repeat while (아직도 배고파?)
+
+stop
+
+@enduml
+```
+
+### While Loop
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/b7d2ca36-78db-407c-a97c-e58da8c0f61a)
+
+```
+@startuml
+
+title While Loop - Activity Diagram 
+
+start
+
+while (배고파?)  is (응)
+  :핫윙을 먹는다;
+  :홈브루를 마신다;
+endwhile (아니)
+
+:잠자러 간다;
+
+stop
+
+@enduml
+```
+
+### Parallel
+
+### Color
+
 ## Class
 
 ## Component
