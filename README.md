@@ -1506,17 +1506,218 @@ footer %filename() rendered with PlantUML version %version()\nThe Hitchhiker’s
 
 ### Array
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/a2dc991f-390f-4bc4-86df-06ce9114371b)
+
+```
+@startjson
+
+["Apple","Banana", "Fig", "Pear"]
+
+@endjson
+```
+
 ### Array of Objects
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/361f8e73-1459-4afc-b591-c338de5382e2)
+
+```
+@startjson
+
+[
+  {
+    "name" : "Mark", 
+    "age" : 31, 
+    "city" : "New York"
+  },
+  {
+    "name" : "Amy", 
+    "age" : 24, 
+    "city" : "Denver"
+  },
+  {
+    "name" : "Steve", 
+    "age" : 75, 
+    "city" : "San Angelo"
+  }
+]
+
+@endjson
+```
 
 ### Complex
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/b8c925a2-9d4b-4b7d-87d3-c707bbfb66b9)
+
+```
+@startjson
+
+{
+  "people" : [
+      {
+        "name" : "Mark", 
+        "age" : 31, 
+        "city" : "New York",
+        "phone": [
+          {
+            "type": "home",
+            "number": "867-5309"
+          },
+          {
+            "type": "mobile",
+            "number": "646 555-4567"
+          }
+        ]
+      },
+      {
+        "name" : "Amy", 
+        "age" : 24, 
+        "city" : "Denver",
+        "pets" : [ "Spot", "George", "Fred"]
+      },
+      {
+        "name" : "Steve", 
+        "age" : 75, 
+        "city" : "San Angelo"
+      }
+    ]
+}
+
+@endjson
+```
+
 ### Highlighting
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/dca34464-1e2e-4e45-be7a-9030060f1262)
+
+```
+@startjson
+
+#highlight "people"
+#highlight "people" / "2" / "age"
+#highlight "people" / "0" / "phone" / "0" / "type"
+
+{
+  "people" : [
+      {
+        "name" : "Mark", 
+        "age" : 31, 
+        "city" : "New York",
+        "phone": [
+          {
+            "type": "home",
+            "number": "867-5309"
+          },
+          {
+            "type": "mobile",
+            "number": "646 555-4567"
+          }
+        ]
+      },
+      {
+        "name" : "Amy", 
+        "age" : 24, 
+        "city" : "Denver",
+        "pets" : [ "Spot", "George", "Fred"]
+      },
+      {
+        "name" : "Steve", 
+        "age" : 75, 
+        "city" : "San Angelo"
+      }
+    ]
+}
+
+@endjson
+```
 
 ### Data Types
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/95471978-245a-4bb5-ba80-bb38c86096a3)
+
+```
+@startjson
+
+{
+  "null" : null,
+  "string" : "String", 
+  "boolean" : true,
+  "boolean" : false, 
+  "number" : 1000,
+  "array": ["Apple", "Banana", "Grapes"],
+  "object": { "type": "home", "number": "867-5309"},
+  "array of objects" :
+  [
+  { "type": "home", "number": "867-5309"},
+  { "type": "mobile", "number": "867-5309"},
+  { "type": "fax", "number": "867-5309"} ]
+}
+
+@endjson
+```
+
 ### In Other Diagrams
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/ed4a116e-d34a-4eff-bc92-ef826c0ba010)
+
+```
+@startuml
+
+title Classes - Class Diagram
+
+class Dwelling {
+  +Int Windows
+  +void Lock()
+}
+
+class House
+class Commune
+
+json HouseInfo {
+   "Doors":"2",
+   "Windows":"24",
+   "Color": ["Green", "White"]
+}
+
+House --> HouseInfo : "Details"
+
+@enduml
+```
+
 ## MindMap
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/c260ce00-ab6c-470a-b23c-db3494082d25)
+
+```
+@startmindmap
+
+'Compatible with OrgMode 
+
+* Solving \n Global \n Warming
+
+** Eating differently
+*** Vegan
+*** Vegetarian
+*** Less processed foods
+*** Buy local food
+** Travel
+*** Bike more
+*** Ride buses
+*** Buy an electric car
+
+left side
+
+** Home
+*** Energy audit
+*** Use a cloths line
+*** Add insulation
+*** Get solar panels
+** Be a role model
+*** Vote
+*** Encourage others
+*** Teach your kids
+
+@endmindmap
+```
 
 ### Basic
 
