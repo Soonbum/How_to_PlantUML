@@ -2169,43 +2169,427 @@ end note
 
 ### Lists
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/eb021315-91e0-4dad-8041-d056333b37d0)
+
+```
+@startuml
+
+object demo {
+  * Bullet list
+  * Second item
+}
+note left
+  * Bullet list
+  * Second item
+  ** Sub item
+end note
+
+legend
+  # Numbered list
+  # Second item
+  ## Sub item
+  ## Another sub item
+  # Third item
+end legend
+@enduml
+```
+
 ## Network
 
 ### Basic Network
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/c0d0ca4d-7738-4075-82fa-5c758eb2c1ea)
+
+```
+@startuml
+
+nwdiag {
+  network home {
+      address = "192.x.x.x/24"
+
+      venus [address = "192.x.x.1"];
+      mars [address = "192.x.x.2"];
+  }
+}
+@enduml
+```
+
 ### Two Levels
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/211c6360-2529-4dcd-8780-d85a01b1d30a)
+
+```
+@startuml
+
+nwdiag {
+  network dmz {
+      address = "45.x.x.x/24"
+
+      webserver [address = "45.x.x.1"];
+
+  }
+  network internal {
+      address = "192.x.x.x/24"
+      
+      webserver [address = "45.x.x.1"];
+
+      venus [address = "192.x.x.1"];
+      mars [address = "192.x.x.2"];
+  }
+}
+@enduml
+```
 
 ### Grouping & Color
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/77898170-70e2-41df-bf1b-dd5c5ce41469)
+
+```
+@startuml
+
+nwdiag {
+    
+    internet [ shape = cloud];
+    internet -- router;
+    
+    group {
+        color = "#FFAAAA";
+        
+        webserver;
+        database;
+    }
+    
+    network dmz {
+        address = "45.x.x.x/24"
+        router
+        webserver [address = "45.x.x.1, 45.x.x.2"];
+    
+    }
+    network internal {
+        address = "192.x.x.x/24"
+        router
+        database [address = "192.x.x.1"];
+        mars [address = "192.x.x.2"];
+    }
+}
+@enduml
+```
+
 ### Description & Icons
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/8a88b94d-d4e7-4b06-9c20-3b4f48a5e25b)
+
+```
+@startuml
+
+nwdiag {
+    
+    internet [ shape = cloud];
+    internet -- router;
+    
+    group {
+        description = "This is my web group"
+        color = "#FFAAAA";
+        webserver;
+        database;
+    }
+    
+    network dmz {
+        address = "45.x.x.x/24"
+        router
+        webserver [address = "45.x.x.1, 45.x.x.2", description = "<&spreadsheet*4>\n db"];
+    
+    }
+    network internal {
+        description = "This is my home network"
+        color = "palegreen"
+        address = "192.x.x.x/24"
+        router [description = "<&cog*4>\n router"]
+        database [address = "192.x.x.1", description = "<&spreadsheet*4>\n db", shape = database];
+        mars [address = "192.x.x.2", description = "<&star*4>\n db"];
+    }
+}
+@endum
+```
+
 ### Network Objects
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/92931ee7-eedc-45d4-b5e2-18c34db5cc58)
+
+```
+@startuml
+
+nwdiag {
+  network Shapes1 {
+    Actor       [shape = actor]       
+    Agent       [shape = agent]       
+    Artifact    [shape = artifact]    
+    Boundary    [shape = boundary]    
+    Card        [shape = card]        
+    Cloud       [shape = cloud]       
+    Collections [shape = collections] 
+    Component   [shape = component]   
+  }
+    network Shapes2 {
+    Control     [shape = control]     
+    Database    [shape = database]    
+    Entity      [shape = entity]      
+    File        [shape = file]        
+    Folder      [shape = folder]      
+    Frame       [shape = frame]       
+    Hexagon     [shape = hexagon]     
+    Interface   [shape = interface]   
+  }
+  network Shapes3 {
+    Label       [shape = label]       
+    Node        [shape = node]        
+    Package     [shape = package]     
+    Person      [shape = person]      
+    Queue       [shape = queue]       
+    Stack       [shape = stack]       
+    Rectangle   [shape = rectangle]   
+    Storage     [shape = storage]     
+    Usecase     [shape = usecase]     
+  }
+}
+@enduml
+```
 
 ## Object
 
 ### Properties
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/362d26e3-b8fc-41be-bd16-51503846453e)
+
+```
+@startuml
+
+object ObjectOne
+object "Object Two" as o2
+
+o2 : id = 1
+o2 : Name = "John"
+
+@endumlml
+```
+
 ### Relationships
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/e8d8624e-d7ba-4504-9880-fe13dc09a7aa)
+
+```
+@startuml
+
+title Simple Object Diagram
+
+object Germany
+object France
+object Spain
+object USA
+object Mexico
+object Russia
+object Canada
+object Japan
+
+Germany <|-- France
+Spain *-- USA
+Mexico o-- Russia
+Canada .. Japan
+
+Germany : Liquor = Jagermeister
+France : Liquor = Wine
+Spain : Liquor = Wine
+USA : Liquor = BudLight
+Mexico : Liquor = Taquilla
+Russia : Liquor = Vodka
+Canada : Liquor = Beer
+Japan : Liquor = Sake
+
+@enduml
+```
+
 ### Nesting Approach
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/71abfa24-6fa5-4a98-8793-d388dfbd6b70)
+
+```
+@startuml
+
+object "Object Two" as o2 {
+    id = 1
+    Name = "John"
+}
+
+```
 
 ## Salt GUI
 
 ### Basic Elements
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/82c77160-9e0b-4a2a-93ac-6c3a3e004999)
+
+```
+@startuml
+
+salt
+{
+  Just plain text
+  [This is my button]
+  ()  Unchecked radio
+  (X) Checked radio
+  []  Unchecked box
+  [X] Checked box
+  "This is a textbox   "
+  ^This is a droplist^
+}
+
+@enduml
+```
+
 ### Grid
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/41fd9c68-dcb6-4f6a-97c5-bf56eb8c48e2)
+
+```
+@startsalt
+
+{
+  User Name:| "Justin     "
+  Password: | "****       "
+  [Ok    ]  | [  Close   ]
+}
+
+@endsalt
+```
 
 ### Separator
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/cb7968d6-5c78-474b-988a-76df3bacbd29)
+
+```
+@startsalt
+
+{
+  This is a dotted line
+  ..
+  This is a double line
+  ==
+  This is a thick solid line
+  ~~
+  This is a thin solid line
+  --
+}
+
+@endsalt
+```
+
 ### Tree View
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/09bd9906-5b68-4810-8734-ff70449d25a1)
+
+```
+@startsalt
+
+{
+    {T
+     + Food
+     ++ Fruit
+     +++ Grape
+     +++ Orange
+     +++ Apple
+     ++++ Honey Crisp
+     ++++ Granny Smith
+     +++ Banana
+     ++ Vegetables
+     +++ Bell pepper
+     +++ Spinach
+     +++ Mushroom
+     ++++ Crimini
+     ++++ Shitaki
+    }
+}
+
+@endsalt
+```
 
 ### Brackets
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/31c9f5d7-1c2a-4b48-a287-c8ed24a96bd9)
+
+```
+@startsalt
+
+{
+Name         | "                 "
+Direction:   | { (X) Left | () Right | () Up | () Down }
+Attending?:  | {  [] Yes | [] No  
+                  [] Maybe }
+ [Browse...] }
+}
+
+@endsalt
+```
+
 ### Tabs
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/799d642c-67c0-4a78-b497-1a47819c866a)
+
+```
+@startsalt
+
+{+
+
+    {/ <b>General | Fullscreen | Behavior | Saving }
+
+    {
+    Name         | "                 "
+    Direction:   | { (X) Left | () Right | () Up | () Down }
+    Attending?:  | {  [] Yes | [] No  
+                      [] Maybe }
+     [Browse...] }
+    }
+
+}
+
+@endsalt
+```
 
 ### Menus
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/4f12e728-5a36-479b-ae7f-c7de77fdc62b)
+
+```
+@startsalt
+
+{+
+
+{* File | Edit | Source | Refactor 
+ Refactor | New | Open File | - | Close | <b>Close All</b> }
+
+    {/ <b>General | Fullscreen | Behavior | Saving }
+
+    {
+    Name         | "                 "
+    Direction:   | { (X) Left | () Right | () Up | () Down }
+    Attending?:  | {  [] Yes | [] No  
+                      [] Maybe }
+     [Browse...] }
+    }
+
+}
+
+@endsalt
+```
+
 ### Iconic Symbols
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/ce90c4e9-3b3e-4741-8eea-9632c64100c2)
+
+```
+@startuml
+listopeniconic
+@enduml
+```
 
 ### Iconic Example Usage
 
