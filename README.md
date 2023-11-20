@@ -1685,6 +1685,8 @@ House --> HouseInfo : "Details"
 
 ## MindMap
 
+### Basic
+
 ![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/c260ce00-ab6c-470a-b23c-db3494082d25)
 
 ```
@@ -1719,9 +1721,50 @@ left side
 @endmindmap
 ```
 
-### Basic
-
 ### Colors & Remove Box
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/0ab69f8a-c81f-41ad-9f7f-788a57333c12)
+
+```
+@startmindmap
+
+<style>
+mindmapDiagram {
+  .green {
+    BackgroundColor lightgreen
+  }
+  .rose {
+    BackgroundColor #FFBBCC
+  }
+}
+</style>
+
+* Solving \n Global \n Warming <<rose>>
+
+**[#lightgreen] Eating differently
+***[#Orange] Vegan
+***[#Orange] Vegetarian
+***[#Orange] Less processed foods
+***[#Orange] Buy local food
+** Travel <<green>>
+***[#Orange] Bike more
+***[#Orange] Ride buses
+***[#Orange] Buy an electric car
+
+left side
+
+** Home <<green>>
+***[#Orange] Energy audit
+***[#Orange] Use a cloths line
+***[#Orange] Add insulation
+***[#Orange] Get solar panels
+**[#lightgreen] Be a role model
+***_ Vote
+***_ Encourage others
+***_ Teach your kids
+
+@endmindmap
+```
 
 ### Multilines
 
