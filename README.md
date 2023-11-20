@@ -1768,37 +1768,404 @@ left side
 
 ### Multilines
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/64106192-1f75-4d81-a307-2a1e4ce361c7)
+
+```
+@startmindmap
+
+* Solving \n Global \n Warming
+**[#lightgreen] Eating differently
+***[#Orange] Vegan
+***[#Orange] Vegetarian
+***[#Orange] Less processed foods
+***[#Orange] Buy local food
+** Travel
+***:-Bike more
+-Skateboard more
+-Walk more
+;
+***:-Ride buses
+-Ride UBER
+-Ride carpool
+;
+***:-Buy an electric car
+-Buy an electric scooter
+-Buy an electric skateboard
+;
+
+@endmindmap
+```
+
 ### Arithmetic Notation
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/132aec63-9dd5-4937-9109-e02670c676dc)
+
+```
+@startmindmap
+
++ Solving \n Global \n Warming
+++ Eating differently
++++ Vegan
++++ Vegetarian
++++ Less processed foods
++++ Buy local food
+++ Travel
++++ Bike more
++++ Ride buses
++++ Buy an electric car
+
+-- Home <<green>>
+--- Energy audit
+--- Use a cloths line
+--- Add insulation
+--- Get solar panels
+-- Be a role model
+--- Vote
+--- Encourage others
+--- Teach your kids
+
+@endmindmap
+```
 
 ### Markdown Syntax
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/f1b2be4e-0499-43c9-9d2b-30fe4dd087d5)
+
+```
+@startmindmap
+
+* Solving \n Global \n Warming
+ * Eating differently
+  * Vegan
+  * Vegetarian
+  * Less processed foods
+  * Buy local food
+ * Travel
+  * Bike more
+  * Ride buses
+  * Buy an electric car
+
+ * Home
+  *_ Energy audit
+  *_ Use a cloths line
+  *_ Add insulation
+  *_ Get solar panels
+ * Be a role model
+  *_ Vote
+  *_ Encourage others
+  *_ Teach your kids
+
+@endmindmap
+```
+
 ### Extras
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/f4e5838b-96a8-402a-b8b8-e00cb1b60d29)
+
+```
+@startmindmap
+
+caption Save World Diagram
+title Save the World
+
+header
+Draft One
+endheader
+
+center footer 1 of 3
+
+legend left
+|= |= Type |
+|<back:#FFBBCC>   </back>| Problem |
+|<back:lightgreen>   </back>| Areas |
+|<back:Orange>   </back>| Actions |
+endlegend
+
+<style>
+mindmapDiagram {
+  .green {
+    BackgroundColor lightgreen
+  }
+  .rose {
+    BackgroundColor #FFBBCC
+  }
+}
+</style>
+
+* Solving \n Global \n Warming <<rose>>
+
+**[#lightgreen] Eating differently
+***[#Orange] Vegan
+***[#Orange] Vegetarian
+***[#Orange] Less processed foods
+***[#Orange] Buy local food
+** Travel <<green>>
+***[#Orange]:Bike more
+Skateboard more
+Walk more
+;
+***[#Orange]:Ride buses
+Ride UBER
+Ride carpool
+;
+***[#Orange]:Buy an electric car
+Buy an electric scooter
+Buy an electric skateboard
+;
+
+left side
+
+** Home <<green>>
+***[#Orange] Energy audit
+***[#Orange] Use a cloths line
+***[#Orange] Add insulation
+***[#Orange] Get solar panels
+**[#lightgreen] Be a role model
+***_ Vote
+***_ Encourage others
+***_ Teach your kids
+
+@endmindmap
+```
+
 ### Styles
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/b9efc70d-a631-4e24-9da9-6a6891479f60)
+
+```
+@startmindmap
+
+<style>
+
+node {
+    Padding 12
+    Margin 3
+    HorizontalAlignment center
+    LineColor blue
+    LineThickness 3.0
+}
+
+rootNode {
+    LineStyle 8.0;3.0
+    LineColor blue
+    BackgroundColor lightgreen
+    LineThickness 3.0
+    RoundCorner 0
+    Shadowing 5
+}
+
+leafNode {
+    LineStyle 1
+    LineColor red
+    LineThickness 1.0
+    RoundCorner 20
+    Padding 3
+}
+
+arrow {
+    LineStyle 4
+    LineThickness 1
+    LineColor blue
+}
+</style>
+
+* Solving \n Global \n Warming
+
+** Eating differently
+*** Vegan
+*** Vegetarian
+*** Less processed foods
+*** Buy local food
+** Travel
+***:Bike more
+Skateboard more
+Walk more
+;
+***:Ride buses
+Ride UBER
+Ride carpool
+;
+***:Buy an electric car
+Buy an electric scooter
+Buy an electric skateboard
+;
+
+left side
+
+** Home
+*** Energy audit
+*** Use a cloths line
+*** Add insulation
+*** Get solar panels
+** Be a role model
+***_ Vote
+***_ Encourage others
+***_ Teach your kids
+
+@endmindmap
+```
 
 ## 기타
 
 ### Oregon Trail :)
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/de0cbe54-625e-4ea2-8090-1a0c34242d49)
+
+```
+@startuml
+'https://plantuml.com/oregon-trail
+run oregon trail
+@enduml
+```
+
 ### Handwritten Diagram
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/ef32ecbe-b6ae-4c22-bc1f-29fe3459e61b)
+
+```
+@startuml
+
+'https://plantuml.com/handwritten
+skinparam handwritten true
+
+Alice -> Bob : hello
+note right: Not validated yet
+@enduml
+```
 
 ### Steve Jobs 1955 - 2011
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/43c21d25-24e5-4b33-849d-d7e980303185)
+
+```
+@startuml
+'https://plantuml.com/steve
+apple II
+@enduml
+```
+
 ### Smetana project
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/46abfb6a-bb43-4859-9358-71f20eafd78f)
+
+```
+@startuml
+
+'https://plantuml.com/smetana02
+
+!pragma layout smetana
+class Foo1
+
+Foo1 --> Foo2
+Foo1 --> Foo3
+Foo1 ---> Foo4 : test 4
+Foo1 ----> Foo5 : test 5
+
+@enduml
+```
 
 ### Sudoku
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/30a2de8e-e8a5-4b6c-b3e7-3fcee4efa7c2)
+
+```
+@startuml
+'https://plantuml.com/sudoku
+sudoku
+@enduml
+```
+
 ### Colors
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/7c5da2b5-e561-44da-9863-84a6d0ec7c96)
+
+```
+@startuml
+'https://plantuml.com/color
+colors
+@enduml
+```
 
 ### Colors Close To
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/f652e901-53f7-454f-9276-711c0d62549f)
+
+```
+@startuml
+colors chocolate
+@enduml
+```
+
 ### Write Code
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/a9796fcc-3a96-48ee-a45b-6c2f6021965c)
+
+```
+@startuml
+
+Alice -> Bob : hello
+note right
+<code>
+main() {
+  printf("Hello world");
+}
+</code>
+end note
+@enduml
+```
 
 ### Legacy HTML
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/4f1c6228-c361-41f4-850d-89323ce37c7f)
+
+```
+@startuml
+
+:* You can change <color:red>text color</color>
+* You can change <back:cadetblue>background color</back>
+* You can change <size:18>size</size>
+* You use <u>legacy</u> <b>HTML <i>tag</i></b>
+* You use <u:red>color</u> <s:green>in HTML</s> <w:#0000FF>tag</w>
+----
+* Use image : <img:http://plantuml.com/logo3.png>
+;
+@enduml
+```
+
 ### Escape Character
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/d2922371-ded8-4d67-ad33-1f036f6945f7)
+
+```
+@startuml
+
+object demo {
+  This is not ~___underscored__.
+  This is not ~""monospaced"".
+}
+@enduml
+```
+
 ### Emphasized Text
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/f2782847-bbf9-4e1a-9853-24bd82e07ac7)
+
+```
+@startuml
+
+Alice -> Bob : hello --there--
+... Some ~~long delay~~ ...
+Bob -> Alice : ok
+note left
+  This is **bold**
+  This is //italics//
+  This is ""monospaced""
+  This is --stroked--
+  This is __underlined__
+  This is ~~waved~~
+end note
+@enduml
+```
 
 ### Lists
 
