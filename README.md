@@ -2593,118 +2593,1487 @@ listopeniconic
 
 ### Iconic Example Usage
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/7fc0dfd7-87dd-4a6c-8f45-3ceca18e4910)
+
+```
+@startsalt
+
+{
+  <&person> Login    | "MyName   "
+  <&key> Password | "****     "
+  [OK <&account-login>] | [Cancel <&circle-x>]
+}
+
+@endsalt
+```
+
 ## Sequence
 
 ### Participants
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/4f88674a-a06f-4494-b99d-62d4365b21d4)
+
+```
+@startuml
+
+title "Participants - Sequence Diagram"
+
+actor User
+boundary "Web GUI" as GUI
+control "Shopping Cart" as SC
+entity Widget
+database Widgets
+
+@enduml
+```
+
 ### Messages
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/15a2092f-ada7-441f-bdd3-18a3f6506791)
+
+```
+@startuml
+
+title "Messages - Sequence Diagram"
+
+actor User
+boundary "Web GUI" as GUI
+control "Shopping Cart" as SC
+entity Widget
+database Widgets
+
+User -> GUI : To boundary
+GUI -> SC : To control
+SC -> Widget : To entity
+Widget -> Widgets : To database
+
+@enduml
+```
 
 ### Comments
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/791f61b9-c8fa-4052-8434-db6833c822e7)
+
+```
+@startuml
+
+title "Comments - Sequence Diagram"
+
+'This is a single line comment
+
+/'
+This is a multi-
+line comment
+'/
+
+actor User
+boundary "Web GUI" as GUI
+control "Shopping Cart" as SC
+entity Widget
+database Widgets
+
+User -> GUI : To boundary
+GUI -> SC : To control
+SC -> Widget : To entity
+Widget -> Widgets : To database
+
+@enduml
+```
+
 ### Message Styles
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/8adf11af-cb9e-4195-86e6-cd86a9120a04)
+
+```
+@startuml
+
+title Message Style - Sequence Diagram
+
+Bob -> Alice
+Bob ->> Alice
+Bob -\ Alice
+Bob \- Alice
+Bob //-- Alice
+
+Bob ->o Alice
+Bob o\-- Alice
+
+Bob <-> Alice
+Bob <->o Alice
+
+@enduml
+```
 
 ## State
 
 ### Simple State
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/097a32f1-cfb5-4997-a691-78b4b9eaf311)
+
+```
+@startuml
+
+title Simple State Model
+[*] --> GlassEmpty
+GlassEmpty --> [*]
+GlassEmpty : Contents - void
+
+GlassEmpty -> GlassFull
+GlassFull : Water
+GlassFull --> [*]
+
+note right
+this is a note
+end note
+
+@enduml
+```
+
 ### Simple Composite State
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/505bf781-4bfa-4297-842f-a0efab32974d)
+
+```
+@startuml
+
+title Simple Composite State Model
+[*] --> NeilDiamond
+state NeilDiamond 
+
+state "Neil Diamond" as NeilDiamond {
+  state Dancing
+  state Singing
+  state Smiling
+  Dancing --> Singing
+  Singing --> Smiling
+  Smiling --> Dancing
+}
+
+@enduml
+```
 
 ### Simple Orthogonal Composite State
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/98d065fa-8b16-40b3-9a48-e576739dca88)
+
+```
+@startuml
+
+title Simple Orthogonal Composite State Model
+[*] --> NeilDiamond
+state NeilDiamond 
+
+state "Neil Diamond Onstage" as NeilDiamond {
+  state Dancing
+  state Singing
+  state Smiling
+  Dancing --> Singing
+  Singing --> Smiling
+  Smiling --> Dancing
+}
+
+state NDoff
+state "Neil Diamond in Dressing Room" as NDoff {
+  state ThinkingAboutAmerica
+  state WatchingGlee
+  ThinkingAboutAmerica --> WatchingGlee
+  WatchingGlee --> ThinkingAboutAmerica
+}
+
+NeilDiamond -Right-> NDoff : Walking
+NDoff -Left-> NeilDiamond :Running
+
+@enduml
+```
+
 ### Concurrent State 3CPO
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/a7507672-61dd-47a7-90f1-624f8cf3bb01)
+
+```
+@startuml
+
+Title Concurrent State - C3PO
+[*] --> InDanger
+State "In Danger" as InDanger {
+  [*] -> Worrying
+  Worrying --> Complaining
+  Complaining --> Worrying
+  --
+  state "Having Illusions of Grandeur" as grandeur
+  state "Calculating Odds of Survival" as survival
+  [*] -> grandeur
+  grandeur --> survival
+  survival --> grandeur
+  --
+  state "Being Prissy" as prissy
+  state "Hating Chewbacca" as chewbacca
+  [*] -> prissy
+  prissy --> chewbacca 
+  chewbacca --> prissy
+} 
+
+@enduml
+```
+
 ### Arrows and Notes
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/484827ee-5bee-412f-ae51-a16cd867846a)
+
+```
+@startuml
+
+Title Arrows and Notes
+State Hungry
+State "Eating Burrito" as EatingBurrito
+State Full
+State Sleeping
+
+note left of Hungry : Single line note
+note right of EatingBurrito
+    Notes can also 
+    take up multiple
+    lines like this
+end note
+
+Hungry -right-> EatingBurrito
+EatingBurrito -down-> Full
+Full -left-> Sleeping
+Sleeping -up-> Hungry
+
+@enduml
+```
 
 ## Themes
 
 ### List All Themes
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/4171c448-a375-4a93-bbb3-ccadf4a63295)
+
+```
+@startuml
+help themes
+@enduml
+```
+
 ### None
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/2e6ae00b-f53c-4159-8713-a7a502793275)
+
+```
+@startuml
+
+!theme _none_
+
+title Relationships - Class Diagram
+
+class Dwelling {
+  +Int Windows
+  +void LockTheDoor()
+}
+
+class Apartment
+class House
+class Commune
+class Window
+class Door
+
+Dwelling <|-down- Apartment: Inheritance
+Dwelling <|-down- Commune: Inheritance
+Dwelling <|-down- House: Inheritance
+Dwelling "1" *-up- "many" Window: Composition
+Dwelling "1" *-up- "many" Door: Composition
+
+@enduml
+```
 
 ### Black Knight
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/030796ed-b0e6-47f7-a305-985ded351c9f)
+
+```
+@startuml
+
+!theme black-knight
+
+title Relationships - Class Diagram
+
+class Dwelling {
+  +Int Windows
+  +void LockTheDoor()
+}
+
+class Apartment
+class House
+class Commune
+class Window
+class Door
+
+Dwelling <|-down- Apartment: Inheritance
+Dwelling <|-down- Commune: Inheritance
+Dwelling <|-down- House: Inheritance
+Dwelling "1" *-up- "many" Window: Composition
+Dwelling "1" *-up- "many" Door: Composition
+
+@enduml
+```
+
 ### Cyborg-Outline
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/1e3bbd08-8148-4e57-b602-c5d01ea1522d)
+
+```
+@startuml
+
+!theme cyborg-outline
+
+title Relationships - Class Diagram
+
+class Dwelling {
+  +Int Windows
+  +void LockTheDoor()
+}
+
+class Apartment
+class House
+class Commune
+class Window
+class Door
+
+Dwelling <|-down- Apartment: Inheritance
+Dwelling <|-down- Commune: Inheritance
+Dwelling <|-down- House: Inheritance
+Dwelling "1" *-up- "many" Window: Composition
+Dwelling "1" *-up- "many" Door: Composition
+
+@enduml
+```
 
 ## Timing
 
 ### Robust
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/7d1d5efe-101b-496d-a502-9a791c057b45)
+
+```
+@startuml
+
+robust "Job Queue" as JQ
+
+@0
+JQ is Idle
+
+@50
+JQ is Processing
+
+@250
+JQ is Logging
+
+@250
+JQ is Waiting
+
+@500
+JQ is Idle
+
+@enduml
+```
+
 ### Clock
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/c4717d04-6fdb-4704-b45a-3884328bc288)
+
+```
+@startuml
+
+clock clk with period 1
+robust "Job Queue" as JQ
+
+@0
+JQ is Idle
+
+@2
+JQ is Processing
+
+@5
+JQ is Logging
+
+@10
+JQ is Waiting
+
+@15
+JQ is Idle
+
+@enduml
+```
 
 ### Extras
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/6b8d33f8-3bb6-4861-a542-1b3b91e52fb0)
+
+```
+@startuml
+
+Title Job Queue
+header: Software Department
+footer: Sprint 32
+legend
+Insert Legend Here
+end legend
+caption Team T-Rex
+
+robust "Job Queue" as JQ
+
+@0
+JQ is Idle
+
+@2
+JQ is Processing
+
+@5
+JQ is Logging
+
+@10
+JQ is Waiting
+
+@15
+JQ is Idle
+
+@enduml
+```
+
 ### Concise
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/218a5bc5-315a-4ac9-9dd5-e9abbfbbfa8a)
+
+```
+@startuml
+
+clock clk with period 1
+robust "Job Queue" as JQ
+concise "User" as U
+
+@0
+JQ is Idle
+U is "Run Feature"
+
+@2
+JQ is Processing
+U is Waiting
+
+@12
+JQ is Logging
+U is "Checking Log"
+
+@15
+JQ is Idle
+U is Done
+
+@enduml
+```
 
 ### Binary
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/27074394-6c8b-404f-81ad-11b85be698a8)
+
+```
+@startuml
+clock clk with period 1
+binary "ReadWrite" as RW
+
+@0
+RW is low
+
+@2
+RW is high
+
+@5
+RW is low
+
+@6
+RW is high
+
+@enduml
+```
+
 ### Relative Timing
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/a46607a9-44c5-4205-9a1e-6d562f1a8315)
+
+```
+@startuml
+
+robust "Job Queue" as JQ
+concise "User" as U
+
+@0
+JQ is Idle
+U is "Wait"
+
+@2
+JQ is Processing
+U is Waiting
+U -> JQ : "Clicked Button"
+
+@6
+JQ -> U@+1 : Almost Complete Message
+
+@7
+U is "Waiting"
+
+@12
+U -> JQ : "DB Job Status"
+JQ is Logging
+U is "Checking Log"
+
+@15
+JQ is Idle
+U is Done
+
+@enduml
+```
 
 ### Participant Oriented
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/2a5ba66a-c296-49c4-abf4-0a2bc89cf152)
+
+```
+@startuml
+robust "Work" as W
+concise "General" as G
+
+@W
+0 is "Main Process"
++5 is "Start worker Process 1"
++1 is "Start worker Process 2"
++1 is "Start worker Process 3"
++1 is "Start worker Process 4"
++1 is "Main Process"
+
+@G
+0 is Waiting
++5 is "Process Images"
++4 is "Done"
+@enduml
+```
+
 ### Color, Highlight, Hide, Constraint
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/f2cb9377-ade6-4cae-83fe-5530e7a712dc)
+
+```
+@startuml
+robust "Work" as W
+concise "General" as G
+
+@W
+0 is "Main Process"
++5 is "Start worker Process 1"
++1 is "Start worker Process 2"
++1 is "Start worker Process 3"
++1 is "Start worker Process 4"
++1 is "Main Process"
+
+@G
+0 is Waiting #yellow
++5 is "Process Images" #green
++4 is "Done" #pink
+
+@2 <-> @+1 : {Too long}
+
+highlight 6 to 7 #Gold;line:Red : "Process 2 Updated Database"
+
+hide time-axis
+
+@enduml
+```
 
 ### Date
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/112ffb1c-be9f-47da-88e2-8e57135998d1)
+
+```
+@startuml
+
+robust "Business Process" as BP
+
+@2021/01/26
+BP is "New Work Order"
+
+@2021/02/02
+BP is "Picked Up By Team"
+
+@2021/02/04
+BP is "Product Delivered"
+
+@enduml
+```
+
 ### Time
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/0d277618-2599-49c2-8c63-68b9e7c35a66)
+
+```
+@startuml
+
+robust "My Day" as MD
+
+@08:00:00
+MD is "Get to work"
+
+@11:30:00
+MD is "Lunch!!!!"
+
+@12:30:00
+MD is "Get to work"
+
+@15:00:00
+MD is "Ride bike home"
+
+@enduml
+```
 
 ## Use Case
 
 ### Use Cases
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/f8b8c88d-3125-4fb1-b3f4-8307c2ea9a77)
+
+```
+@startuml
+
+skin rose
+
+title Use Case Diagram 
+
+
+(Login)
+(Run Process) as (Proc1)
+usecase (Undo Process)
+usecase (Log Out) as UC4
+
+@enduml
+```
+
 ### Actors
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/064517bb-3afe-4415-aa88-477f786fd79e)
+
+```
+@startuml
+
+skin rose
+
+title Actors - Use Case Diagram 
+
+
+:Administrator:
+:Standard User: as SU  
+actor Accountant
+actor :Client: as C
+
+@enduml
+```
 
 ### Connections
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/2dc10768-3554-419a-975a-182d2e2bb889)
+
+```
+@startuml
+
+skin rose
+
+Employee -up-|> User
+Client -up-|> User
+Supervisor -up-|> User
+Employee --> (Login)
+Supervisor --> (Login)
+Client ..> (Login) : NO!!!!
+Supervisor --> (Create / Delete User): I am god
+
+@enduml
+```
+
 ### Stereotypes
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/c1d7b0cb-a742-4fe2-ad5a-2834ca99aa58)
+
+```
+@startuml
+
+skin rose
+
+title Stereotypes - Use Case Diagram
+
+
+(Login) as L
+(Upload File) as UF<<Manual>>
+actor :User: as U<<Person>>
+:HAL: as H<<Computer>>
+
+U -> UF
+U ---> (L)
+H <.up.> (L)
+
+@enduml
+```
 
 ### Directions
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/fc3d229d-8dc5-4f0a-afb4-b87cce054da2)
+
+```
+@startuml
+
+skin rose
+
+title Directions - Use Case Diagram
+
+actor :Admin: as A
+
+A -> (Login)
+A --> (Logout)
+A -left-> (Copy / Paste)
+A -up-> (Bulk Upload)
+A ---> (Throw Computer Out Of Window!!!)
+
+@enduml
+```
+
 ### Package
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/da108667-9404-436f-bfcf-6e888bf336bd)
+
+```
+@startuml
+
+skin rose
+
+title Package - Use Case Diagram
+
+
+rectangle Features {
+    (Login)
+    (Create / Delete User) as CDU
+}
+
+:Employee: 
+:Client:
+:Supervisor:
+
+Employee --> (Login)
+Supervisor --> (Login)
+Client ..> (Login) : NO!!!!
+Supervisor ---> CDU: I am god
+
+@enduml
+```
 
 ## Work Breakdown Structure
 
 ### OrgMode Syntax
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/01f5e911-9795-491e-ad9d-2ca2f427d835)
+
+```
+@startwbs
+
+skin rose
+
+* Software Project
+** Requirements
+*** Purpose
+*** Description
+*** End-user needs
+*** High level estimation
+** Design
+*** Build Design Document
+**** Concise text description
+**** Highly informative UML diagrams
+*** Build team
+**** John (The database) Dawkins
+**** Sally (The javascript) Marten
+**** Fred (The Animal) Johnson
+*** Start detailed estimation
+** Implemetation
+*** Setup DevOps
+*** Write Unit Tests
+*** Write Code!!!!! :)
+** Testing
+*** Make sure unit tests are working
+*** Regression test everything
+*** Smoke test before release
+*** Performance testing
+** Deployment
+*** Please make sure this is automated!!
+** Maintenance
+*** Measure usage of all features
+*** Think about what functions can be removed
+*** Optimize any IT systems
+@endwbs
+```
+
 ### Direction
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/ec453536-04b9-4d77-a337-984f3b232851)
+
+```
+@startwbs
+
+skin rose
+
+* Software Project
+** Design
+*** Build Design Document
+****< Concise text description
+**** Highly informative UML diagrams
+***< Build team
+****< John (The database) Dawkins
+****> Sally (The javascript) Marten
+****< Fred (The Animal) Johnson
+***< Start detailed estimation
+@endwbs
+```
 
 ### Arithmetic Notation
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/d982a194-9e7e-4f5f-b783-4c788b771a43)
+
+```
+@startwbs
+
+skin rose
+
++ Software Project
+++ Design
++++ Build Design Document
+++++ Concise text description
+++++ Highly informative UML diagrams
++++ Build team
+++++ John (The database) Dawkins
+++++ Sally (The javascript) Marten
+++++ Fred (The Animal) Johnson
++++ Start detailed estimation
+@endwbs
+```
+
 ### Icons
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/ccbbb509-429f-4b49-be18-05b5bb103326)
+
+```
+@startwbs
+
+skin rose
+
++ Software Project
+++ Design
++++ <&document>Build Design Document
+++++ <&text>Concise text description
+++++ <&share>Highly informative UML diagrams
++++ Build team
+++++ <&person>John (The database) Dawkins
+++++ <&person>Sally (The javascript) Marten
+++++ <&person>Fred (The Animal) Johnson
++++ <&person>Start detailed estimation
+@endwbs
+```
 
 ### Arithmetic Spaces & No Boxes
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/0902d419-dc4d-4dfc-8210-873869db8e0a)
+
+```
+@startwbs
+
+skin rose
+
++ Software Project
+ + Design
+  + <&document>Build Design Document
+   + <&text>Concise text description
+   +_ <&share>Highly informative UML diagrams
+  + Build team
+   + <&person>John (The database) Dawkins
+   + <&person>Sally (The javascript) Marten
+   + <&person>Fred (The Animal) Johnson
+  + <&person>Start detailed estimation
+@endwbs
+```
+
 ### Multiline & Color
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/6cdf3668-36da-48da-8c57-d6903ae154cd)
+
+```
+@startwbs
+
+skin rose
+
+<style>
+wbsDiagram {
+  .pinkname {
+      BackgroundColor pink
+  }
+}
+</style>
+
+* Software Project
+**[#SkyBlue] Design
+***< Build Design Document
+****_ Concise text description
+****_ Highly informative UML diagrams
+***: Build team
+ - John (The database) Dawkins
+ - Sally (The javascript) Marten
+ - Fred (The Animal) Johnson; <<pinkname>>
+*** Start detailed estimation
+@endwbs
+```
+
 ### Style & Color
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/fabadf64-9db3-4dce-b919-7e0d88c4673c)
+
+```
+@startwbs
+
+skin rose
+
+<style>
+wbsDiagram {
+    
+    Linecolor black
+    .pinkname {
+        BackgroundColor pink
+    }
+    arrow {
+        LineColor green
+    }
+    :depth(0) {
+        BackgroundColor White
+        RoundCorner 10
+        LineColor red
+    }
+    arrow {
+        :depth(2) {
+            LineColor blue
+            LineStyle 4
+            LineThickness .5
+        }
+    }
+    node {
+        :depth(2) {
+            LineStyle 2
+            LineThickness 2.5
+        }
+    }
+    boxless {
+        FontColor darkgreen
+    }
+}
+</style>
+
+* Software Project
+**[#SkyBlue] Requirements
+***< ...
+**[#SkyBlue] Design
+***< Build Design Document
+****_ Concise text description
+****_ Highly informative UML diagrams
+***: Build team
+ - John (The database) Dawkins
+ - Sally (The javascript) Marten
+ - Fred (The Animal) Johnson; <<pinkname>>
+*** Start detailed estimation
+@endwbs
+```
 
 ## XEarth
 
 ### Basic
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/6e4cbd28-0741-4691-80f2-b1b98f6ef7c1)
+
+```
+@startuml
+xearth
+@enduml
+```
+
 ### Add Place
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/405aaaef-8710-47ad-bf40-c0c9c854cc80)
+
+```
+@startuml
+xearth(600,600)
+viewMagnification = 1.0
+daySideBrightness = 100
+nightSideBrightness = 50
+terminatorDiscontinuity = 30
+sunPosRelLong = -40
+sunPosRelLat = 20
+39.75 -105.00 "Denver"
+@enduml
+```
 
 ### Add More Stars
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/9dbbfedf-e759-4acf-8071-a85cc2139f94)
+
+```
+@startuml
+xearth(300,300)
+starsP = true
+starFrequency = 0.025
+bigStars = 20
+@enduml
+```
+
 ### Relative View From Sun
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/8e755da0-0716-46ff-84d6-89bf83f17d0a)
+
+```
+@startuml
+xearth(300,300)
+viewPositionType = Sun-relative
+sunPosRelLat = -10
+sunPosRelLong = 40
+@enduml
+```
 
 ### Change Grid Configuration
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/1209add3-6058-49ec-b9ac-69930f3fb963)
+
+```
+@startuml
+xearth(300,300)
+gridP = true
+gridDivision = 9
+gridPixelDivision = 8
+@enduml
+```
+
 ### Fixed Position without Shading
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/359ab8b5-d4bf-4cbe-8e12-f53bc7c1a1ed)
+
+```
+@startuml
+xearth(300,300)
+viewPositionType = Fixed
+viewPosLat = -30
+viewPosLong = -30
+shadeP = false
+gridP = false
+@enduml
+```
 
 ### View From Moon Changing Luminacity
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/7ce5b704-0d37-42a5-be3b-6d27e1eeb010)
+
+```
+@startuml
+xearth(300,300)
+viewPositionType = Moon
+daySideBrightness = 100
+nightSideBrightness = 30
+terminatorDiscontinuity = 50
+@enduml
+```
+
 ### Adding Cities
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/8b8f16db-bb13-49f2-8abe-e2d55532dc05)
+
+```
+@startuml
+xearth
+ 61.17 -150.00 "Anchorage"           # Alaska, USA
+ 38.00   23.73 "Athens"              # Greece
+ 33.4    44.4  "Baghdad"             # Iraq
+ 13.73  100.50 "Bangkok"             # Thailand
+ 39.92  116.43 "Beijing"             # China
+ 52.53   13.42 "Berlin"              # Germany
+ 32.3   -64.7  "Bermuda"             # Bermuda
+ 42.33  -71.08 "Boston"              # Massachusetts, USA
+-15.8   -47.9  "Brasilia"            # Brazil
+ -4.2    15.3  "Brazzaville"         # Congo
+-34.67  -58.50 "Buenos Aires"        # Argentina
+ 31.05   31.25 "Cairo"               # Egypt
+ 22.5    88.3  "Calcutta"            # India
+-33.93   18.47 "Cape Town"           # South Africa
+ 33.6    -7.6  "Casablanca"          # Morocco (Rabat?)
+ 41.83  -87.75 "Chicago"             # Illinois, USA
+ 32.78  -96.80 "Dallas"              # Texas, USA
+ 28.63   77.20 "New Delhi"           # India
+ 39.75 -105.00 "Denver"              # Colorado, USA
+ 24.23   55.28 "Dubai"               # UAE (Abu Dhabi?)
+-27.1  -109.4  "Easter Island"       # Easter Island
+-18.0   178.1  "Fiji"                # Fiji
+ 13.5   144.8  "Guam"                # Guam
+ 60.13   25.00 "Helsinki"            # Finland
+ 22.2   114.1  "Hong Kong"           # Hong Kong
+ 21.32 -157.83 "Honolulu"            # Hawaii, USA
+ 52.2   104.3  "Irkutsk"             # Irkutsk, Russia
+ 41.0    29.0  "Istanbul"            # Turkey (Ankara?)
+ -6.13  106.75 "Jakarta"             # Indonesia
+ 31.8    35.2  "Jerusalem"           # Israel
+ 34.5    69.2  "Kabul"               # Afghanistan
+ 27.7    85.3  "Kathmandu"           # Nepal
+ 50.4    30.5  "Kiev"                # Ukraine
+  3.13  101.70 "Kuala Lumpur"        # Malaysia
+  6.45    3.47 "Lagos"               # Nigeria
+-12.10  -77.05 "Lima"                # Peru
+ 51.50   -0.17 "London"              # United Kingdom
+ 40.42   -3.72 "Madrid"              # Spain
+ 14.6   121.0  "Manila"              # The Phillipines
+ 21.5    39.8  "Mecca"               # Saudi Arabia
+ 19.4   -99.1  "Mexico City"         # Mexico
+ 25.8   -80.2  "Miami"               # Florida, USA
+  6.2   -10.8  "Monrovia"            # Liberia
+ 45.5   -73.5  "Montreal"            # Quebec, Canada
+ 55.75   37.70 "Moscow"              # Russia
+ -1.28   36.83 "Nairobi"             # Kenya
+ 59.93   10.75 "Oslo"                # Norway
+ 48.87    2.33 "Paris"               # France
+-32.0   115.9  "Perth"               # Australia
+ 45.5  -122.5  "Portland"            # Oregon, USA
+ -0.2   -78.5  "Quito"               # Ecuador
+ 64.15  -21.97 "Reykjavik"           # Iceland
+-22.88  -43.28 "Rio de Janeiro"      # Brazil
+ 41.88   12.50 "Rome"                # Italy
+ 11.0   106.7  "Ho Chi Minh City"    # Vietnam (Hanoi?)
+ 37.75 -122.45 "San Francisco"       # California, USA
+  9.98  -84.07 "San Jose"            # Costa Rica
+ 18.5   -66.1  "San Juan"            # Puerto Rico
+-33.5   -70.7  "Santiago"            # Chile
+  1.2   103.9  "Singapore"           # Singapore
+ 42.67   23.30 "Sofia"               # Bulgaria
+ 59.33   18.08 "Stockholm"           # Sweden
+-33.92  151.17 "Sydney"              # Australia
+-17.6  -149.5  "Tahiti"              # Tahiti
+ 16.8    -3.0  "Timbuktu"            # Mali (Bamako?)
+ 35.67  139.75 "Tokyo"               # Japan
+ 43.70  -79.42 "Toronto"             # Ontario, Canada
+ 32.9    13.2  "Tripoli"             # Libya
+ 47.9   106.9  "Ulan Bator"          # Mongolia
+ 49.22 -123.10 "Vancouver"           # B.C., Canada
+ 48.22   16.37 "Vienna"              # Austria
+ 38.9   -77.0  "Washington"          # United States
+-41.28  174.78 "Wellington"          # New Zealand
+ 62.5  -114.3  "Yellowknife"         # N.T., Canada
+ 90.00    0.00 "North Pole"          # North Pole
+-90.00    0.00 "South Pole"          # South Pole
+@enduml
+```
 
 ## YAML
 
 ### One Element
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/7f8dd4a3-0dae-41cd-b5aa-d81658877c01)
+
+```
+@startyaml
+
+Hello:  World <&globe>
+
+@endyaml
+```
+
 ### Array of Elements
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/f625f48e-4f27-4a61-b45d-41720513e2fe)
+
+```
+@startyaml
+
+Hello:
+  - Thing 1
+  - Thing 2    
+  - Thing 3  
+
+World:
+  - Thing 1
+  - Thing 2    
+  - Thing 3   
+
+@endyaml
+```
 
 ### AWS Cloud Formation
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/0256c412-a664-49ec-92cc-cf1791c7b728)
+
+```
+@startyaml
+
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.html
+
+Parameters:
+  KeyName:
+    Description: Name of an existing EC2 KeyPair to enable SSH access into the WordPress web server
+    Type: AWS::EC2::KeyPair::KeyName
+  WordPressUser:
+    Default: admin
+    NoEcho: true
+    Description: The WordPress database admin account user name
+    Type: String
+    MinLength: 1
+    MaxLength: 16
+    AllowedPattern: "[a-zA-Z][a-zA-Z0-9]*"
+  WebServerPort:
+    Default: 8888
+    Description: TCP/IP port for the WordPress web server
+    Type: Number
+    MinValue: 1
+    MaxValue: 65535
+
+@endyaml
+```
+
 ### Styling
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/9b85f29b-1c34-4e0f-b733-c17c0f5166d6)
+
+```
+@startyaml
+
+<style>
+
+yamlDiagram {
+
+  node {
+    FontSize 16
+    FontStyle normal
+    FontColor blue
+    BackGroundColor lightgray
+    LineColor blue
+
+    RoundCorner 10
+    LineThickness 1
+    LineStyle 6-10
+    
+    separator {
+      LineStyle 3
+      LineThickness 2
+      LineColor red
+    }
+    
+  }
+  
+  arrow {
+    LineColor green
+    LineThickness 5
+    LineStyle 2-5
+  }
+  
+}
+
+</style>
+
+HealthCheck:
+  Target: !Join 
+    - ''
+    - - 'HTTP:'
+      - !Ref WebServerPort
+      - /
+
+@endyaml
+```
 
 ### Highlighting
 
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/47994e85-5913-4551-8ef6-b1bc776d87f1)
+
+```
+@startyaml
+
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.html
+
+#highlight "Parameters" / "KeyName"
+#highlight "Parameters" / "WordPressUser" / "Description"
+
+Parameters:
+  KeyName:
+    Description: Name of an existing EC2 KeyPair to enable SSH access into the WordPress web server
+    Type: AWS::EC2::KeyPair::KeyName
+  WordPressUser:
+    Default: admin
+    NoEcho: true
+    Description: The WordPress database admin account user name
+    Type: String
+    MinLength: 1
+    MaxLength: 16
+    AllowedPattern: "[a-zA-Z][a-zA-Z0-9]*"
+  WebServerPort:
+    Default: 8888
+    Description: TCP/IP port for the WordPress web server
+    Type: Number
+    MinValue: 1
+    MaxValue: 65535
+
+@endyaml
+```
+
 ### Complex YAML.org
+
+![image](https://github.com/Soonbum/How_to_PlantUML/assets/16474083/a5f81e85-77dc-46c3-aa0b-8eb8a79e87b9)
+
+```
+@startyaml
+
+# yaml.org
+
+YAML: YAML Ain't Markup Language™
+
+What It Is:
+  YAML is a human-friendly data serialization
+  language for all programming languages.
+
+YAML Resources:
+  YAML Specifications:
+  - YAML 1.2:
+    - Revision 1.2.2      # Oct 1, 2021 *New*
+    - Revision 1.2.1      # Oct 1, 2009
+    - Revision 1.2.0      # Jul 21, 2009
+  - YAML 1.1
+  - YAML 1.0
+
+  YAML Matrix Chat:  '#chat:yaml.io'     # Our New Group Chat Room!
+  YAML IRC Channel:  libera.chat#yaml    # The old chat
+  YAML News:         twitter.com/yamlnews
+  YAML Mailing List: yaml-core           # Obsolete, but historical
+
+  YAML on GitHub:                        # github.com/yaml/
+    YAML Specs:        yaml-spec/
+    YAML 1.2 Grammar:  yaml-grammar/
+    YAML Test Suite:   yaml-test-suite/
+    YAML Issues:       issues/
+
+  YAML Reference Parsers:
+  - Generated Reference Parsers
+  - YPaste Interactive Parser
+
+  YAML Test Matrix:   matrix.yaml.io
+
+YAML Frameworks and Tools:
+  C/C++:
+  - libfyaml      # "C" YAML 1.2 processor (YTS)
+  - libyaml       # "C" Fast YAML 1.1 (YTS)
+  - libcyaml      # YAML de/serialization of C data (using libyaml)
+  - yaml-cpp      # C++ YAML 1.2 implementation
+
+  Crystal:
+  - YAML          # YAML 1.1 from the standard library
+
+  C#/.NET:
+  - YamlDotNet    # YAML 1.1/(1.2) library + serialization (YTS)
+  - yaml-net      # YAML 1.1 library
+
+  D:
+  - D-YAML        # YAML 1.1 library w/ official community support (YTS)
+
+  Dart:
+  - yaml          # YAML package for Dart
+
+  Delphi:
+  - Neslib.Yaml   # YAML 1.1 Delphi binding to libyaml (YTS)
+
+  Elixir:
+  - yaml-elixir   # YAML support for the Elixir language
+
+  Erlang:
+  - yamerl        # YAML support for the Erlang language
+
+  Golang:
+  - Go-yaml       # YAML support for the Go language
+  - Go-gypsy      # Simplified YAML parser written in Go
+  - goccy/go-yaml # YAML 1.2 implementation in pure Go
+
+  Haskell:
+  - HsYAML         # YAML 1.2 implementation in pure Haskell (YTS)
+  - YamlReference  # Haskell 1.2 reference parser
+  - yaml           # YAML 1.1 Haskell framework (based on libyaml)
+
+  Java:
+  - SnakeYAML Engine  # Java 8+ / YAML 1.2
+  - SnakeYAML         # Java 5 / YAML 1.1
+  - YamlBeans         # To/from JavaBeans. YAML 1.0/1.1
+  - eo-yaml           # YAML 1.2 for Java 8. Packaged as a Module (Java 9+)
+  - Chronicle-Wire    # Java Implementation
+
+  JavaScript:
+  - yaml          # JavaScript parser/stringifier (YAML 1.2, 1.1) (YTS)
+  - js-yaml       # Native PyYAML port to JavaScript (Demo)
+
+  Nim:
+  - NimYAML       # YAML 1.2 implementation in pure Nim (YTS)
+
+  OCaml:
+  - ocaml-yaml    # YAML 1.1/1.2 via libyaml bindings
+  - ocaml-syck    # YAML 1.0 via syck bindings
+
+  Perl Modules:
+  - YAML          # Pure Perl YAML 1.0 Module
+  - YAML::XS      # Binding to libyaml
+  - YAML::Syck    # Binding to libsyck
+  - YAML::Tiny    # A small YAML subset module
+  - YAML::PP      # A YAML 1.2/1.1 processor (YTS)
+
+  PHP:
+  - The Yaml Component  # Symfony Yaml Component (YAML 1.2)
+  - php-yaml      # libyaml bindings (YAML 1.1)
+  - syck          # syck bindings (YAML 1.0)
+  - spyc          # yaml loader/dumper (YAML 1.?)
+
+  Python:
+  - PyYAML        # YAML 1.1, pure python and libyaml binding
+  - ruamel.yaml   # YAML 1.2, update of PyYAML; comments round-trip
+  - PySyck        # YAML 1.0, syck binding
+  - strictyaml    # Restricted YAML subset
+
+  R:
+  - R YAML        # libyaml wrapper
+
+  Raku:
+  - YAMLish       # Port of YAMLish to Raku
+  - YAML::Parser::LibYAML  # LibYAML wrapper
+
+  Ruby:
+  - psych         # libyaml wrapper (in Ruby core for 1.9.2)
+  - RbYaml        # YAML 1.1 (PyYAML Port)
+  - yaml4r        # YAML 1.0, standard library syck binding
+
+  Rust:
+  - yaml-rust     # YAML 1.2 implementation in pure Rust
+  - serde-yaml    # YAML de/serialization of structs
+
+  Shell:
+  - parse_yaml    # Simple YAML parser for Bash using sed and awk
+  - shyaml        # Read YAML files - jq style
+
+  Swift:
+  - Yams          # libyaml wrapper
+
+  Others:
+  - yamlvim       # YAML dumper/emitter in pure vimscript
+
+Related Projects:
+  - Rx            # Multi-Language Schemata Tool for JSON/YAML
+  - Kwalify       # Ruby Schemata Tool for JSON/YAML 
+  - pyKwalify     # Python Schemata Tool for JSON/YAML
+  - yatools.net   # Visual Studio editor for YAML
+  - JSON          # Official JSON Website
+  - Pygments      # Python language Syntax Colorizer /w YAML support
+  - yamllint      # YAML Linter based on PyYAML
+  - YAML Diff     # Semantically compare two YAML documents
+  - JSON Schema   # YAML-compliant JSON standard for data validation
+          
+@endyaml
+```
